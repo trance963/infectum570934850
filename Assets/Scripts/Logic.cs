@@ -13,6 +13,11 @@ public class Logic : MonoBehaviour
 
     public State CurrentState { get; private set; }
 
+    void Start()
+    {
+        CurrentState = State.Playing;
+    }
+
     public void TooMuch() // метод смерти
     {
         if (CurrentState != State.Playing) return;
