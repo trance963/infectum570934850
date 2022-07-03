@@ -7,6 +7,10 @@ public class SpawnTimer : MonoBehaviour
     public GameObject [] Victim;
     public float MinTimeWait;
     public float MaxTimeWait;
+    public float MaxWidthSpawn;
+    public float MinWidthSpawn;
+    public float MaxHeightSpawn;
+    public float MinHeightSpawn;
     private int RandomVictim;
     public int HowMuchVictim;
 
@@ -34,7 +38,7 @@ public class SpawnTimer : MonoBehaviour
     public void Spawn()// сам метод спавна
     {
         Instantiate(Victim[RandomVictim]);
-        Victim[RandomVictim].transform.position = new Vector3(4, 4, 0);
+        Victim[RandomVictim].transform.position = new Vector3(Random.Range(MinWidthSpawn,MaxWidthSpawn), Random.Range(MinHeightSpawn,MaxHeightSpawn), 1);
         HowMuchVictim++;
     }
 }
