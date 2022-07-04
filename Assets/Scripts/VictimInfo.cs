@@ -8,15 +8,13 @@ public class VictimInfo : MonoBehaviour
 
     private void Start()
     {
-        Health = Random.Range(4,8);
+        Health = Random.Range(3,5);//здоровье жертвы
     }
 
-    public void OnMouseDown()
+    public void OnMouseDown() //при нажатии 
     {
-        if (Health <= 1)
+        if (Health <= 1) //условие уничтожения
         {
-            TryGetComponent(out SpawnTimer spawntimer);
-            spawntimer.HowMuchVictim--;
             Debug.Log("Victim is dead");
             Health--;
             Destroy(gameObject);
@@ -26,5 +24,13 @@ public class VictimInfo : MonoBehaviour
         {
             Health--;
         }
+    }
+
+    public void OnDestroy()// при разрушении
+    {
+        GameObject go = GameObject.Find("Game");//находим владельца счетчика
+        SpawnTimer spawnTimer = go.GetComponent<SpawnTimer>();// получаем переменную из гейм
+        spawnTimer.HowMuchVictim--;//минус в счетчик активных жертв
+        spawnTimer.HowMuchKills++;//плюс в счетчик сложности
     }
 }

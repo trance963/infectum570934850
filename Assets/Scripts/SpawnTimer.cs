@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SpawnTimer : MonoBehaviour
 {
-    public GameObject [] Victim;
+    public GameObject [] Victim; 
     public float MinTimeWait;
     public float MaxTimeWait;
     public float MaxWidthSpawn;
     public float MinWidthSpawn;
     public float MaxHeightSpawn;
     public float MinHeightSpawn;
-    private int RandomVictim;
-    public int HowMuchVictim;
+    private int RandomVictim; //определяем случайного
+    public int HowMuchVictim;// условие проигрыша, количество живых жертв
+    public int HowMuchKills;
 
     void Start() // Я СКАЗАЛА СТАРТУЕМ!!!11
     {
@@ -27,7 +28,7 @@ public class SpawnTimer : MonoBehaviour
         if (HowMuchVictim >= 10)// если активных целей 10, останавливаем спавн
         {
             StopCoroutine(WaitAndSpawn());
-            Debug.Log("Stop WaitAndSpawn");// будем спокойны
+            Debug.Log("Stop WaitAndSpawn GAME OVER");// будем спокойны
         }
         else //или создаем новую
         {
