@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnTimer : MonoBehaviour
 {
+    public GameObject GameUI;
+    public GameObject LoseUI;
     public GameObject [] Victim; 
     public float MinTimeWait;
     public float MaxTimeWait;
@@ -28,6 +30,8 @@ public class SpawnTimer : MonoBehaviour
         if (HowMuchVictim >= 10)// если активных целей 10, останавливаем спавн
         {
             StopCoroutine(WaitAndSpawn());
+            GameUI.SetActive(false);
+            LoseUI.SetActive(true);
             Debug.Log("Stop WaitAndSpawn GAME OVER");// будем спокойны
         }
         else //или создаем новую
