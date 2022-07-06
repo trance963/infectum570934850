@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -25,24 +23,21 @@ public class MenuUIButtons : MonoBehaviour
 
     public void TaskOnClickStartGame()//метод старта
     {
-        SceneManager.LoadScene("Game");
-        Debug.Log("Start game!");
-        Application.Quit();
+        SceneManager.LoadScene(1); //стоит индекс сцены
     }
 
     public void TaskOnClickHallofGlory()//метод вызова списка редордов
     {
-
+        //в разработке
     }
 
     public void TaskOnClickCredit()//метод вызова окна создателя
     {
-
+        //в разработке
     }
 
     public void TaskOnClickExitGame()//метод выхода
     {
-        Debug.Log("Exit pressed!");
         Application.Quit();
     }
 }

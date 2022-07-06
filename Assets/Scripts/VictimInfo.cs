@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class VictimInfo : MonoBehaviour
@@ -15,7 +13,6 @@ public class VictimInfo : MonoBehaviour
     {
         if (Health <= 1) //условие уничтожения
         {
-            Debug.Log("Victim is dead");
             Health--;
             Destroy(gameObject);
         }

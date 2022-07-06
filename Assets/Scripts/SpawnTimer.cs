@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnTimer : MonoBehaviour
@@ -22,7 +21,7 @@ public class SpawnTimer : MonoBehaviour
         StartCoroutine(WaitAndSpawn());
     }
 
-    IEnumerator WaitAndSpawn() //счетчик времени между спавнами
+    public IEnumerator WaitAndSpawn() //счетчик времени между спавнами
     {
         RandomVictim = Random.Range(0, Victim.Length - 1);
         Spawn();
@@ -32,7 +31,6 @@ public class SpawnTimer : MonoBehaviour
             StopCoroutine(WaitAndSpawn());
             GameUI.SetActive(false);
             LoseUI.SetActive(true);
-            Debug.Log("Stop WaitAndSpawn GAME OVER");// будем спокойны
         }
         else //или создаем новую
         {
@@ -42,8 +40,8 @@ public class SpawnTimer : MonoBehaviour
 
     public void Spawn()// сам метод спавна
     {
-        Instantiate(Victim[RandomVictim]);
-        Victim[RandomVictim].transform.position = new Vector3(Random.Range(MinWidthSpawn,MaxWidthSpawn), Random.Range(MinHeightSpawn,MaxHeightSpawn), 1);
-        HowMuchVictim++;
+        Instantiate(Victim[RandomVictim]).tag = "clone";// при создании назначаем тег, заранее сделаный в инспекторе
+        Victim[RandomVictim].transform.position = new Vector3(Random.Range(MinWidthSpawn,MaxWidthSpawn), Random.Range(MinHeightSpawn,MaxHeightSpawn), 1); // рандомное место в пределах указанных в инспекторе
+        HowMuchVictim++;// плюс в счетчик активных целей
     }
 }
