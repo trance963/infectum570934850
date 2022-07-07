@@ -12,9 +12,12 @@ public class SpawnTimer : MonoBehaviour
     public float MinWidthSpawn;
     public float MaxHeightSpawn;
     public float MinHeightSpawn;
+    public int MaxHP;
+    public int MinHP;
     private int RandomVictim; //определяем случайного
     public int HowMuchVictim;// условие проигрыша, количество живых жертв
     public int HowMuchKills;
+
 
     void Start() // Я СКАЗАЛА СТАРТУЕМ!!!11
     {

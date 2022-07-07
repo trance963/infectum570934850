@@ -6,7 +6,9 @@ public class VictimInfo : MonoBehaviour
 
     private void Start()
     {
-        Health = Random.Range(3,5);//здоровье жертвы
+        GameObject go = GameObject.Find("Game");//находим владельца счетчика
+        SpawnTimer spawnTimer = go.GetComponent<SpawnTimer>();// получаем переменную из гейм
+        Health = Random.Range(spawnTimer.MinHP, spawnTimer.MaxHP);//здоровье жертвы
     }
 
     public void OnMouseDown() //при нажатии 
