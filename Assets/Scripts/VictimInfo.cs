@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class VictimInfo : MonoBehaviour
 {
+    public ParticleSystem Tap;
     public int Health;
-
+    private void Awake()
+    {
+        Tap = GetComponent<ParticleSystem>();
+    }
     private void Start()
     {
         GameObject go = GameObject.Find("Game");//находим владельца счетчика
