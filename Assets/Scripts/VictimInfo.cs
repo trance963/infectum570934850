@@ -26,6 +26,7 @@ public class VictimInfo : MonoBehaviour
         else
         {
             Health--;
+            Tap.Play();
         }
     }
 
